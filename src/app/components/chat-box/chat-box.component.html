@@ -1,0 +1,22 @@
+<!--<p class="text-light">{{topicKey}}</p>-->
+<div class="d-flex col-12 flex-column  chat-box p-2 pb-0 gap-1" #chatBox >
+  <div class="col-12 d-flex p-1 pb-1 align-items-center" *ngFor="let message of messages"
+       [ngStyle]="{
+      'justify-content': message.sender  !== userId ? 'flex-start' : 'flex-end'
+   }"
+
+  >
+    <p class="p-2 her-message" *ngIf="message.sender !== userId">
+      {{ message.content }}
+    </p>
+
+    <p class="p-2 my-message" *ngIf="message.sender === userId">
+      {{ message.content }}
+    </p>
+
+  </div>
+</div>
+<section class="col-lg-10 col-xl-10 col-xxl-10 col-12 d-flex gap-1 p-2 text-box">
+  <input type="text" [(ngModel)]="messageContent" class="col-lg-11 col-xl-11 col-xxl-11 col-md-11 col-10 p-2"/>
+  <button class="btn col-lg-1 col-xl-1 col-xxl-1 col-md-1 col-2 p-2" (click)="sendMessage()">SEND</button>
+</section>

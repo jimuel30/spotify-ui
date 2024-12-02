@@ -1,0 +1,16 @@
+<div class="col-12 artist-page d-flex flex-column justify-content-center align-items-center artist-page">
+  <div class="col-lg-10 col-xl-10 col-xxl-10 col-12 d-flex flex-column p-2 gap-2 artist-banner">
+    <div class="banner col-12 d-flex mt-2">
+      <img [src]="artist.images[0].url" alt="{{artist.name}}" class="col-3 col-lg-1 col-xl-1 col-xxl-1">
+      <section class="col-9 col-lg-11 col-xl-11 col-xxl-11 p-2">
+        <h1 class="col-12">{{artist.name}}</h1>
+        <section class="col-12 d-flex flex-wrap gap-1">
+          <label *ngFor="let genre of artist.genres" class="text-light p-1 genre">{{genre}}</label>
+        </section>
+      </section>
+    </div>
+<!--    <button class="btn  col-6 col-lg-2 col-xl-2 col-xxl-2 p-3 start">START</button>-->
+  </div>
+  <app-chat-box [artistId]="artistId" class="col-lg-10 col-xl-10 col-xxl-10 col-12"></app-chat-box>
+
+</div>

@@ -1,0 +1,65 @@
+.chat-box p{
+  font-weight: bolder;
+  border-radius: 3px;
+  font-size: var(--medium-font);
+  margin: 0;
+}
+.her-message{
+  background-color: var(--primary-color);
+}
+.my-message{
+  background-color: white;
+  color: black;
+}
+.text-box{
+  background-color: var(--tertiary-color);
+  position: fixed;
+  bottom: 0;
+}
+.text-box button{
+  background-color: var(--primary-color);
+  font-weight: bolder;
+  border-radius: 3px;
+  font-size: var(--medium-font);
+  font-family: "Poppins", sans-serif;
+}
+.text-box input{
+  border-radius: 3px;
+  border: none;
+  outline: none;
+  font-weight: bold;
+  font-size: var(--medium-font);
+}
+.chat-box{
+   overflow: hidden;
+   overflow-y: scroll;
+   background-color: var(--tertiary-color);
+  border-radius: 3px;
+}
+
+.chat-box  > :first-child {
+  margin-top: auto !important;
+  /* use !important to prevent breakage from child margin settings */
+}
+
+
+/* Style the entire scrollbar */
+.chat-box::-webkit-scrollbar {
+  width: 5px; /* Set the width of the scrollbar */
+  height: auto; /* Set the height of the horizontal scrollbar */
+}
+
+/* Style the scrollbar track (the background of the scrollbar) */
+.chat-box::-webkit-scrollbar-track {
+  background: transparent; /* Light background for the track */
+}
+
+/* Style the scrollbar thumb (the draggable part of the scrollbar) */
+.chat-box::-webkit-scrollbar-thumb {
+  background-color: var(--primary-color); /* Green color for the thumb */
+}
+
+/* Optional: Style when the thumb is hovered */
+.chat-box::-webkit-scrollbar-thumb:hover {
+  background-color: var(--primary-color); /* Darker green when hovered */
+}

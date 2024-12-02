@@ -1,0 +1,31 @@
+.artist-page button {
+  border: none;
+  font-size: var(--medium-font);
+  font-weight: bolder;
+  background-color: var(--primary-color);
+  color: black;
+  border-radius: 7px;
+  font-family: "Poppins", sans-serif;
+}
+.artist-page{
+  background-color: var(--secondary-color);
+}
+.artist-page h1{
+  color: white;
+  font-size: var(--large-font);
+  font-weight: bolder;
+}
+.artist-page img{
+  aspect-ratio: 1/1;
+  border-radius: 5px;
+  min-width: 100px;
+  max-width: 100px;
+  min-height: 100px;
+  max-height: 100px;
+}
+.genre{
+  font-size: var(--small-font);
+  background-color: var(--tertiary-color);
+  font-weight: bolder;
+  border-radius: 3px;
+}

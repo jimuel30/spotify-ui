@@ -1,0 +1,19 @@
+.artist-card img{
+  aspect-ratio: 1/1;
+  border-radius: 2px;
+
+
+}
+.artist-card{
+  background-color: var(--tertiary-color);
+  color: white;
+  border-radius: 5px;
+  font-size: var(--medium-font);
+  cursor: pointer;
+  font-family: "Poppins", sans-serif;
+}
+.artist-card:hover{
+  background-color: var(--primary-color);
+  color: black;
+  font-weight: bolder;
+}

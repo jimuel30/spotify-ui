@@ -1,0 +1,9 @@
+.main-page{
+  background-color: var(--secondary-color);
+}
+.main-page h1{
+  font-size: var(--large-font);
+  color: white;
+  font-weight: bolder;
+
+}
