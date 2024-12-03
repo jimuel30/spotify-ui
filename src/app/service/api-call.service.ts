@@ -18,16 +18,29 @@ export class ApiCallService {
   }
 
 
-  postWithBearer(url:string,body:any): Observable<any> {
-    const headers = new HttpHeaders({});
-    return this.http.post<any>(url, body, { headers }).pipe(
-      map((response: any) => response) // Extract the body here
-    );
-  }
+  // postWithBearer(url:string,body:any): Observable<any> {
+  //   const headers = new HttpHeaders({});
+  //   return this.http.post<any>(url, body, { headers }).pipe(
+  //     map((response: any) => response) // Extract the body here
+  //   );
+  // }
 
 
 
-  getWithBearer(url: string) {
+postWithBearer(url: string, body: any): Observable<any> {
+  const headers = new HttpHeaders({
+    'Content-Type': 'application/json'
+    // No need to add Authorization header if using cookies for authentication
+  });
+
+  return this.http.post<any>(url, body, { headers, withCredentials: true }).pipe(
+    map((response: any) => response) // Extract the body here
+  );
+}
+
+
+
+getWithBearer(url: string) {
     const accessToken =  this.getAccessToken();
     console.log("token: "+accessToken)
     const headers = new HttpHeaders({
