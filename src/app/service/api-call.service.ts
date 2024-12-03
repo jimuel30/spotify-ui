@@ -43,11 +43,12 @@ postWithBearer(url: string, body: any): Observable<any> {
 getWithBearer(url: string) {
     const accessToken =  this.getAccessToken();
     console.log("token: "+accessToken)
-    const headers = new HttpHeaders({
-      'Authorization': accessToken?accessToken:""
-    });
+  const headers = new HttpHeaders({
+    'Content-Type': 'application/json'
+    // No need to add Authorization header if using cookies for authentication
+  });
 
-    return this.http.get<any>(url, { headers }).pipe(
+    return this.http.get<any>(url, { headers, withCredentials: true }).pipe(
       map((response: any) => response) // Extract the body here
     );
   }
