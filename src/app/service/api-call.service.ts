@@ -41,8 +41,11 @@ postWithBearer(url: string, body: any): Observable<any> {
 
 
 getWithBearer(url: string) {
-    const accessToken =  this.getAccessToken();
-    console.log("token: "+accessToken)
+    // const accessToken =  this.getAccessToken();
+    // console.log("token: "+accessToken)
+
+  console.log(document.cookie)
+
   const headers = new HttpHeaders({
     'Content-Type': 'application/json'
     // No need to add Authorization header if using cookies for authentication
@@ -53,21 +56,21 @@ getWithBearer(url: string) {
     );
   }
 
-  getCookie(name: string): string | null | undefined {
-    const value = `; ${document.cookie}`;
-    console.log("VALUE:" + value)
-    const parts = value.split(`; ${name}=`);
-    if (parts.length === 2) return parts.pop()!.split(';').shift();
-    return null;  // Return null if cookie is not found
-  }
-
-  // Method to get the access token from cookies
-  getAccessToken(): string | null | undefined{
-    return this.getCookie('access_token');
-  }
-
-  // Method to get the refresh token from cookies
-  getRefreshToken(): string | null | undefined{
-    return this.getCookie('refresh_token');
-  }
+  // getCookie(name: string): string | null | undefined {
+  //   const value = `; ${document.cookie}`;
+  //   console.log("VALUE:" + value)
+  //   const parts = value.split(`; ${name}=`);
+  //   if (parts.length === 2) return parts.pop()!.split(';').shift();
+  //   return null;  // Return null if cookie is not found
+  // }
+  //
+  // // Method to get the access token from cookies
+  // getAccessToken(): string | null | undefined{
+  //   return this.getCookie('access_token');
+  // }
+  //
+  // // Method to get the refresh token from cookies
+  // getRefreshToken(): string | null | undefined{
+  //   return this.getCookie('refresh_token');
+  // }
 }
