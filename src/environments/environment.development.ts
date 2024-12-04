@@ -1,3 +1,3 @@
 export const environment = {
-  backendDomain: "https://3.107.187.169"
+  backendDomain: "https://54.253.2.130"
 };

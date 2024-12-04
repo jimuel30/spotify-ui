@@ -4,6 +4,7 @@ import {Artist} from "../../interfaces/Spotify";
 import {ArtistCardComponent} from "../../components/artist-card/artist-card.component";
 import {NgForOf} from "@angular/common";
 import {UrlConstant} from "../../constant/UrlConstant";
+import {ActivatedRoute} from "@angular/router";
 
 @Component({
   selector: 'app-main-page',
@@ -18,14 +19,39 @@ import {UrlConstant} from "../../constant/UrlConstant";
 export class MainPageComponent implements OnInit{
 
   artists:Artist[] = [];
+  accessToken = ""
+  refreshToken = ""
 
-  constructor(private apiService:ApiCallService){
+  constructor(private apiService:ApiCallService, private route: ActivatedRoute){
   }
 
 
   ngOnInit(): void {
-        this.getTopArtistsHandler();
+
+
+    this.validateAccessToken()
+
+
+  }
+
+  validateAccessToken(){
+    if(localStorage.getItem("accessToken") === undefined || localStorage.getItem("accessToken") === null){
+      this.route.queryParams.subscribe(params => {
+        this.accessToken = params['access_token'];
+        this.refreshToken = params['refresh_token'];
+
+        localStorage.setItem("accessToken", this.accessToken);
+        localStorage.setItem("refreshToken", this.refreshToken);
+
+      });
     }
+    this.getTopArtistsHandler();
+  }
+
+
+
+
+
 
   getTopArtistsHandler(){
     this.apiService.getWithBearer(UrlConstant.TOP_ARTIST_URL).subscribe({
