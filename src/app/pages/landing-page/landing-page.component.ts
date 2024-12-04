@@ -10,6 +10,9 @@ import {UrlConstant} from "../../constant/UrlConstant";
   styleUrl: './landing-page.component.css'
 })
 export class LandingPageComponent {
+
+  errorMessage = "";
+
   constructor(private apiService:ApiCallService){
   }
 
@@ -21,7 +24,9 @@ export class LandingPageComponent {
         window.location.replace(url);
       },
       error: (e) => {
-        console.log(e.error.message)
+        console.log(e.message)
+        console.log(e)
+        this.errorMessage = e.message;
       },
       complete: () => console.info('complete'),
     });
