@@ -22,7 +22,7 @@ export class MainPageComponent implements OnInit{
   accessToken = ""
   refreshToken = ""
 
-  constructor(private apiService:ApiCallService, private route: ActivatedRoute){
+  constructor(private apiService:ApiCallService, private route: ActivatedRoute, private location:Location){
   }
 
 
@@ -42,6 +42,7 @@ export class MainPageComponent implements OnInit{
 
         localStorage.setItem("accessToken", this.accessToken);
         localStorage.setItem("refreshToken", this.refreshToken);
+        this.location.replace("/main")
 
       });
     }
