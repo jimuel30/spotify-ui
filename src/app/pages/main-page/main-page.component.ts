@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {ApiCallService} from "../../service/api-call.service";
 import {Artist} from "../../interfaces/Spotify";
 import {ArtistCardComponent} from "../../components/artist-card/artist-card.component";
-import {NgForOf} from "@angular/common";
+import {Location, NgForOf} from "@angular/common";
 import {UrlConstant} from "../../constant/UrlConstant";
 import {ActivatedRoute} from "@angular/router";
 
@@ -22,7 +22,7 @@ export class MainPageComponent implements OnInit{
   accessToken = ""
   refreshToken = ""
 
-  constructor(private apiService:ApiCallService, private route: ActivatedRoute){
+  constructor(private apiService:ApiCallService, private route: ActivatedRoute, private location:Location){
   }
 
 
@@ -43,7 +43,7 @@ export class MainPageComponent implements OnInit{
         localStorage.setItem("accessToken", this.accessToken);
         localStorage.setItem("refreshToken", this.refreshToken);
 
-        window.history.pushState({},'',"/main")
+         this.location.replaceState("/main")
 
       });
     }
