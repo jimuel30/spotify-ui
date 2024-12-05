@@ -4,7 +4,7 @@ import {Artist} from "../../interfaces/Spotify";
 import {ArtistCardComponent} from "../../components/artist-card/artist-card.component";
 import {NgForOf} from "@angular/common";
 import {UrlConstant} from "../../constant/UrlConstant";
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'app-main-page',
@@ -22,7 +22,7 @@ export class MainPageComponent implements OnInit{
   accessToken = ""
   refreshToken = ""
 
-  constructor(private apiService:ApiCallService, private route: ActivatedRoute, private location:Location){
+  constructor(private apiService:ApiCallService, private route: ActivatedRoute, private router:Router){
   }
 
 
@@ -42,11 +42,11 @@ export class MainPageComponent implements OnInit{
 
         localStorage.setItem("accessToken", this.accessToken);
         localStorage.setItem("refreshToken", this.refreshToken);
-        this.location.replace("/main")
+
+        this.router.navigate(['/main'], { replaceUrl: true });
 
       });
     }
-    this.getTopArtistsHandler();
   }
 
 
