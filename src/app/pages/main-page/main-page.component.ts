@@ -31,8 +31,7 @@ export class MainPageComponent implements OnInit{
 
     this.validateAccessToken()
     this.location.replaceState("/main")
-    console.log("State: ");
-    console.log(this.location.getState())
+
 
   }
 
@@ -45,7 +44,7 @@ export class MainPageComponent implements OnInit{
         localStorage.setItem("accessToken", this.accessToken);
         localStorage.setItem("refreshToken", this.refreshToken);
 
-
+        this.getTopArtistsHandler();
 
       });
     }
