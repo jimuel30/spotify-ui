@@ -1,3 +1,3 @@
 export const environment = {
-  backendDomain: "http://localhost:8080",
+  backendDomain: "https://proxy-server-pearl.vercel.app/",
 };
