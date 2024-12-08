@@ -56,6 +56,9 @@ export class MainPageComponent implements OnInit{
 
 
   getTopArtistsHandler(){
+
+    console.log("Calling Artist")
+
     this.apiService.getWithBearer(UrlConstant.TOP_ARTIST_URL).subscribe({
       next: (v) => {
         this.artists = v.data;
