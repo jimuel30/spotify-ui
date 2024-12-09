@@ -18,6 +18,10 @@ export class LandingPageComponent {
 
 
   loginHandler(){
+
+
+    localStorage.clear();
+
     this.apiService.getWithoutBearer(UrlConstant.LOGIN_URL).subscribe({
       next: (v) => {
         const url = v.data;
