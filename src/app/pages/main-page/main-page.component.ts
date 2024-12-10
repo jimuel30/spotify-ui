@@ -44,10 +44,9 @@ export class MainPageComponent implements OnInit{
         localStorage.setItem("accessToken", this.accessToken);
         localStorage.setItem("refreshToken", this.refreshToken);
 
-        this.getTopArtistsHandler();
-
       });
     }
+    this.getTopArtistsHandler();
   }
 
 
